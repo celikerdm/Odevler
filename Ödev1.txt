@@ -67,8 +67,8 @@ do
     Console.Write("İkinci sayıyı giriniz: ");
     int number2 = Convert.ToInt32(Console.ReadLine());
 
-    int toplam = number1 + number2;
-    Console.WriteLine("Girilen sayıların toplamı= " + toplam);
+    int sum = number1 + number2;
+    Console.WriteLine("Girilen sayıların toplamı= " + sum);
 
     Console.Write("Yeni bir işlem yapmak ister misiniz?(e/h): ");
     answer = Convert.ToChar(Console.ReadLine());
