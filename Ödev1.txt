@@ -1,0 +1,219 @@
+//1- Switch case ile müşteriden alınan sipariş numarasına göre hangi ürünün sipariş edildiğini belirleyen algoritma yazınız.Input için Scanner kullanınız
+
+Console.WriteLine("1- Ayakkabı  2- Gömlek  3-Ceket  4-Pantolon  5- Kemer");
+Console.WriteLine("Sipariş etmek istediğiniz ürünün numarasını giriniz: ");
+int productNumber = Convert.ToInt32(Console.ReadLine());
+
+if (productNumber >= 1 && productNumber <= 5)
+{
+    switch (productNumber)
+    {
+        case 1:
+            Console.WriteLine("Ayakkbı siparişiniz alınmıtır.");
+            break;
+        case 2:
+            Console.WriteLine("Gömlek siparişiniz alınmıtır.");
+            break;
+        case 3:
+            Console.WriteLine("Ceket siparişiniz alınmıtır.");
+            break;
+        case 4:
+            Console.WriteLine("Pantolon siparişiniz alınmıtır.");
+            break;
+        case 5:
+            Console.WriteLine("Kemer siparişiniz alınmıtır.");
+            break;
+
+    }
+}
+else
+{
+    Console.WriteLine("Lütfen 1 ile 5 numaralı ürünler arasından seçiminizi yapınız.");
+}
+
+
+//2 - kullanıcıdan kaç ürün almak istediğini soran, her ürünün fiyatını alarak toplam alışveriş tutarını hesaplayan bir algoritma yazınız.(Input için Scanner ve döngü için for döngüsü kullanınız)
+
+
+Console.WriteLine("Ürün birim fiyatı = 20 TL, ");
+Console.Write("Almak istediğiniz ürün adedini giriniz: ");
+int productQuantity = Convert.ToInt32(Console.ReadLine());
+int productPrice = 20 * productQuantity;
+
+for (int i = 0; i <= productQuantity; i += 20)
+{
+    productPrice += i;
+}
+
+Console.WriteLine("Toplam alışveriş tutarı: " + productPrice + " TL");
+
+
+//3 - Do - While ve While döngüsü nedir? Bununla ilgili örnek yapınız.
+
+// Do - While
+// Döngü mekanizmaları içerisinde bulunan koşul sağlandığı sürece komut satırlarını çalıştırmaya devam eden mekanizmalardır.
+// do bloğu içerisindeki komut satırları işlenip sonrasında koşul kontrol edilir.
+// Koşul doğruluğu sağlanıyor ise do içerisindeki komut satırları işlenmeye devam eder.
+
+// Örnek
+// Kullanıcıdan 2 adet sayı talep edip bu sayıların toplamını yazdıralım daha sonra ise yeni bir işlem yapıp yapmak istemediklerini soralım. Cevap evet ise yeniden aynı işlemler dönsün.
+
+char answer = ' ';
+do
+{
+    Console.Write("Birinci sayıyı giriniz: ");
+    int number1 = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("İkinci sayıyı giriniz: ");
+    int number2 = Convert.ToInt32(Console.ReadLine());
+
+    int toplam = number1 + number2;
+    Console.WriteLine("Girilen sayıların toplamı= " + toplam);
+
+    Console.Write("Yeni bir işlem yapmak ister misiniz?(e/h): ");
+    answer = Convert.ToChar(Console.ReadLine());
+} while (answer == 'e' || answer == 'E');
+
+
+// While
+// While döngüsünün koşul alanı içerisindeki istenilen değeri verdiği sürece bu döngü içerisindeki komut satırlarını işlemeye devam eder.
+// Koşul alanı istenilen değeri vermediğinde döngü mekanizmasından çıkılır.
+
+// Örnek
+// 1'den 10'a kadar olan sayıları ekrana yazdıralım.
+
+//int start = 1, end = 10;
+//while (start <= end)
+//{
+//    Console.WriteLine(start);
+//    start++;
+//}
+
+//4-Kullanıcının 1 ile 10 arasında rastgele bir sayıyı tahmin etmesini isteyen ve doğru tahmin edene kadar devam eden bir program yazınız.(While döngüsü ile yapınız ve rastgele sayı üretmek için Random sınıfını kullanınız)
+
+Random rndm = new Random();
+int randomNumber = rndm.Next(1, 11);
+
+bool guess = false;
+
+while (!guess)
+{
+    Console.Write("1 ile 10 arasındaki sayıyı tahmin ediniz: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+
+    if (number == randomNumber)
+    {
+        guess = true;
+    }
+}
+Console.WriteLine();
+Console.WriteLine("Tebrikler sayıyı doğru tahmin ettiniz.");
+
+
+//5- Bir sayının mükemmel sayı olup olmadığı kontrol eden algoritma yazınız.
+
+
+int number;
+int sum = 0;
+int numberAlt;
+
+    Console.Write("Sayıyı girin: ");
+    number = Convert.ToInt32(Console.ReadLine());
+    numberAlt = number;
+
+for (int i = 1; i < number; i++)
+{
+    if (number % i == 0)
+    {
+        sum = sum + i;
+    }
+
+}
+    if ( sum == numberAlt)
+{
+    Console.WriteLine("Girilen sayı mükemmel sayıdır.");
+}
+    else
+{
+    Console.WriteLine("Girilen sayı mükemmel sayı değildir.");
+}
+
+
+
+//6- String metotlarını araştırınız. Her bir metot için örnek yapınız.
+
+string text = "HEllo WOrld";
+
+// Length Metodu
+// Bir string değerin karakter sayısını boşluklar dahil olmak üzere döndürür.
+// Geriye int tipinde değer döndürür.
+
+Console.WriteLine(text.Length);
+
+// IndexOf() Metodu
+// Bir string değerin içerisinde bir karakter veya kelime aramamızı sağlar.
+// Bulduğu ilk değer hangi index numarası ile başlıyor ise o index numarasını döndürür.
+// Eğer bir sonuç buluyorsa bulduğu sonucun index numarasını, bulamıyorsa -1 değerini döndürür.
+
+Console.WriteLine(text.IndexOf('H'));
+Console.WriteLine(text.IndexOf("lo"));
+Console.WriteLine(text.IndexOf("h"));
+
+// Contains() Metodu
+// Bir string değerin içerisinde bir karakter veya kelime aramamızı sağlar.
+// Eğer bir sonuç buluyorsa true, bulamıyorsa false değerini döndürür.
+
+bool answer = text.Contains("rld");
+Console.WriteLine(answer);
+bool answer2 = text.Contains("x");
+Console.WriteLine(answer2);
+
+// ToLower() Metodu
+// Bir string değerin içerisinde bulunan karakterleri küçük karaktere çevirir.
+
+Console.WriteLine(text.ToLower());
+
+// ToUpper() Metodu
+// Bir string değerin içerisinde bulunan karakterleri büyük karaktere çevirir.
+
+Console.WriteLine(text.ToUpper());
+
+// Trim() Metodu
+// Bir string değerde metnin önünde ve sonunda bulunan boşluk karakterlerini siler.
+
+string newText = "                  Hello                     ";
+string newText2 = "                   World                         ";
+Console.WriteLine(newText.Trim() + newText2.Trim());
+
+// Replace() Metodu
+// Bir string değer içerisinde bulunan karakter veya metni, başka bir karakter veya metinle değiştirmemizi sağlar.
+// () içerisinde iki adet parametre alır. Sırası ile değişecek metin, yeni metin değerleri girmemiz gerekmektedir.
+
+Console.WriteLine(text.Replace("HEllo", "Hello"));
+Console.WriteLine(text.Replace("H", "E"));
+
+
+//7- kullanıcıdan öğrenci sayısını isteyen her öğrenci için öğrenci adı,öğrenci soyadı,1.sınav notu,2.sınav notu,3.sınav notu isteyen ve daha sonra not ortalamasını hesaplayıp ekrana yazdıran algoritma yapınız.(For döngüsü kullanınız)
+
+Console.Write("Öğrenci sayısını giriniz: ");
+int students = Convert.ToInt32(Console.ReadLine());
+
+for (int i = 0; i < students; i++)
+{
+    Console.Write("Öğrencinin adını girin: ");
+    string name = Console.ReadLine();
+    Console.Write("Öğrencinin soyadını girin: ");
+    string surName = Console.ReadLine();
+    Console.Write("1. sınav notunu girin: ");
+    int grade1 = Convert.ToInt32(Console.ReadLine());
+    Console.Write("2. sınav notunu girin: ");
+    int grade2 = Convert.ToInt32(Console.ReadLine());
+    Console.Write("3. sınav notunu girin: ");
+    int grade3 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    
+    int avg = (grade1 + grade2 + grade3) / 3;
+    Console.Write("Öğrencinin not ortalaması: " + avg);
+    Console.WriteLine();
+    Console.WriteLine();
+}
