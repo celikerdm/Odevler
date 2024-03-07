@@ -212,7 +212,7 @@ for (int i = 0; i < students; i++)
     int grade3 = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine();
     
-    int avg = (grade1 + grade2 + grade3) / 3;
+    double avg = (grade1 + grade2 + grade3) / 3;
     Console.Write("Öğrencinin not ortalaması: " + avg);
     Console.WriteLine();
     Console.WriteLine();
