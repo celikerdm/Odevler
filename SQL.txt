@@ -46,4 +46,4 @@
 
 24. SELECT product_name AS "Product Name", unit_price AS "Unit Price", category_name AS "Category Name" FROM products JOIN categories ON products.category_id = categories.category_id ORDER BY unit_price DESC LIMIT 1;
 
-25. SELECT product_name AS "Product Name", category_name AS "Category Name", company_name AS "Company Name" FROM products JOIN categories ON products.category_id = categories.category_id JOIN suppliers ON products.supplier_id = suppliers.supplier_id ORDER BY units_on_order * unit_price DESC LIMIT 1;
+25. SELECT product_name AS "Product Name", category_name AS "Category Name", company_name AS "Company Name" FROM products JOIN categories ON products.category_id = categories.category_id JOIN suppliers ON products.supplier_id = suppliers.supplier_id ORDER BY units_on_order DESC LIMIT 1;
