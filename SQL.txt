@@ -1,0 +1,49 @@
+1. SELECT product_name AS "Product Name", quantity_per_unit AS "Quantity Per Unit" FROM products;
+
+2. SELECT (product_id, product_name) AS "Discontinued" FROM products WHERE discontinued = 1;
+
+3. SELECT (product_id, product_name) AS "Continued" FROM products WHERE discontinued = 0;
+
+4. SELECT product_id AS "Product ID", product_name AS "Product Name", unit_price AS "Unit Price" FROM products WHERE unit_price < 20;
+
+5. SELECT product_id AS "Product ID", product_name AS "Product Name", unit_price AS "Unit Price" FROM products WHERE unit_price >= 15 AND unit_price <= 25;
+
+6. SELECT product_name AS "Product Name", units_on_order AS "Units On Order", units_in_stock AS "Units In Stock" FROM products WHERE units_in_stock < units_on_order;
+
+7. SELECT * FROM products WHERE product_name LIKE 'A%'; 
+
+8. SELECT * FROM products WHERE product_name LIKE '%i';
+
+9. SELECT product_name AS "Product Name", unit_price AS "Unit Price", (unit_price + (unit_price * 0.18)) AS "Unit Price Kdv" FROM products; 
+
+10. SELECT COUNT(*) AS "Quantity" FROM products WHERE unit_price > 30;
+
+11. SELECT LOWER(product_name) AS "Product Name" FROM products ORDER BY unit_price DESC;
+
+12. SELECT CONCAT(first_name,' ', last_name) AS "Full Name" FROM employees;
+
+13. SELECT COUNT(*) AS "Supplier Null" FROM suppliers WHERE region IS NULL;
+
+14. SELECT COUNT(*) AS "Supplier Not Null" FROM suppliers WHERE region IS NOT NULL;
+
+15. SELECT UPPER(CONCAT('TR', product_name)) AS "Product Name" FROM products;
+
+16. SELECT CONCAT('TR', product_name) AS "Product Name" FROM products WHERE unit_price < 20;
+
+17. SELECT product_name AS "Product Name", unit_price AS "Unit Price" FROM products ORDER BY unit_price DESC;
+
+18. SELECT product_name AS "Product Name", unit_price AS "Unit Price" FROM products ORDER BY unit_price DESC LIMIT 10;
+
+19. SELECT product_name AS "Product Name", unit_price AS "Unit Price" FROM products WHERE unit_price > (SELECT AVG(unit_price) FROM products);
+
+20. SELECT SUM(unit_price * units_in_stock) AS "Total" FROM products;
+
+21. SELECT COUNT(CASE WHEN discontinued = 0 THEN 1 END) AS "Active Products", COUNT(CASE WHEN discontinued = 1 THEN 1 END) AS "Discontinued Products" FROM Products;
+
+22. SELECT product_name AS "Product Name", category_name AS "Category Name" FROM products JOIN categories ON products.category_id = categories.category_id;
+
+23. SELECT category_name AS "Category Name", AVG(unit_price) AS "Average Unit Price" FROM products JOIN categories ON products.category_id = categories.category_id GROUP BY category_name;
+
+24. SELECT product_name AS "Product Name", unit_price AS "Unit Price", category_name AS "Category Name" FROM products JOIN categories ON products.category_id = categories.category_id ORDER BY unit_price DESC LIMIT 1;
+
+25. SELECT product_name AS "Product Name", category_name AS "Category Name", company_name AS "Company Name" FROM products JOIN categories ON products.category_id = categories.category_id JOIN suppliers ON products.supplier_id = suppliers.supplier_id ORDER BY units_on_order * unit_price DESC LIMIT 1;
